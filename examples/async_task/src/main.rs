@@ -2,7 +2,7 @@ use std::path::Path;
 use tokio::fs;
 use tokio::task;
 use tokio::time;
-
+// cargo run --package async_task
 async fn A() -> String {
     let sr_ = Path::new(r"a.txt");
     let a = fs::read_to_string(sr_).await.unwrap();
@@ -31,7 +31,6 @@ async fn main() {
     });
     let ree = bbb.await;
     println!("{:?}", ree);
-
 
     let s = now.elapsed().as_secs();
     println!("{}", s);

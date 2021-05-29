@@ -10,17 +10,20 @@ name = "rust_cheatsheet"
 path = "src/lib.rs"
 
 [dependencies]
-tokio = { version = "1", features = ["full"] }
-mod_exam={version="0.1.0"}
-
-[patch.crates-io]
-# local module file/dir
-mod_exam={path="mod_exam"}
-
-[[example]]
-name="async_task"
-[[example]]
-name="module"
+module={path="module"}
+[workspace]
+members=[
+    "examples/async_task",
+    "examples/fileio_exam",
+    "examples/rstotxt",
+    "examples/filter_mobi",
+    "examples/basic1",
+    "examples/basic2",
+    "mod_exam",
+    "module",
+    "filetotxt"
+    
+]
 
 
 
