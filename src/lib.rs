@@ -4,4 +4,3 @@ fn main() {
     module::c::w();
     module::aa();
 }
-

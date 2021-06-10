@@ -12,13 +12,13 @@ where
     par
 }
 ///return closure
-fn return_closure()->Box<dyn Fn(u32)->u32>{
-Box::new(|x|x+1)
-} 
+fn return_closure() -> Box<dyn Fn(u32) -> u32> {
+    Box::new(|x| x + 1)
+}
 /// fn as a parameter
-fn receive(f:fn(u32)->u32,val:u32){
-    f(val)+f(val);
-} 
+fn receive(f: fn(u32) -> u32, val: u32) {
+    f(val) + f(val);
+}
 /// # iteratr
 /// custom impl iterator for struct  
 #[derive(Debug, Clone)]
@@ -46,8 +46,7 @@ fn test_closure() {
 }
 
 #[test]
-fn test_return_closure(){
-    let x=3;
-   let s= return_closure()(2);
- 
+fn test_return_closure() {
+    let x = 3;
+    let s = return_closure()(2);
 }

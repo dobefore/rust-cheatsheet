@@ -1,1 +1,1 @@
-pub  mod  C;
+pub mod C;

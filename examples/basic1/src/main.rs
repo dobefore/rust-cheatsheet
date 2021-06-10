@@ -12,8 +12,6 @@ struct R {
     h: u8,
 }
 impl R {
-   
-    
     fn squire(size: u8) -> R {
         R { w: size, h: size }
     }
@@ -24,7 +22,6 @@ enum Q {
     Quit,
     Point(u8, u8),
     Val(u8),
-    
 }
 /// # pattern match
 /// _ placeholder () unit value

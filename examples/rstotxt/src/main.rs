@@ -1,6 +1,6 @@
 use std::fs;
 use walkdir::WalkDir;
-use std::time;
+
 ///  change extention (a.rs to a.txt) recursively in a folder
 /// # example
 /// change .rs to .txt
@@ -43,12 +43,10 @@ fn main() {
     // let suf = String::from("rs");
     // let folder = String::from(r"D:\software\vscode_project\anki_sync");
     // suffix_txt(suf, folder);
- 
 }
 
 #[cfg(test)]
 mod tests {
-    use super::suffix_txt;
     use std::path::Path;
 
     #[test]

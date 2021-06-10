@@ -2,7 +2,7 @@ pub trait Sound {
     fn make_sound(&self);
 }
 /// trait object: duck typing in python
-/// dynamic dispach : compiler  can't tell at compile time which method you're calling 
+/// dynamic dispach : compiler  can't tell at compile time which method you're calling
 struct Animal {
     spieces: Vec<Box<dyn Sound>>,
 }

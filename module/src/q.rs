@@ -1,3 +1,3 @@
-pub mod c{
- pub    fn d() {}
+pub mod c {
+    pub fn d() {}
 }

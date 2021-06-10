@@ -1,3 +1,3 @@
-pub  fn c() {
+pub fn c() {
     println!("this is module B")
 }

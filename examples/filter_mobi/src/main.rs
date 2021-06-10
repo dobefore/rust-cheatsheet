@@ -1,4 +1,5 @@
 use std::fs;
+use std::io;
 use std::path::Path;
 use std::path::PathBuf;
 use walkdir::WalkDir;
@@ -6,7 +7,7 @@ use walkdir::WalkDir;
 fn mkdir(dir: &str) -> PathBuf {
     let dst_dir = Path::new(dir).join("filtered_dir");
     if !dst_dir.exists() {
-        fs::create_dir(&dst_dir);
+        fs::create_dir(&dst_dir).unwrap();
     }
 
     dst_dir
@@ -19,7 +20,7 @@ fn mkdir(dir: &str) -> PathBuf {
 ///    let ext = "mobi";
 ///    filter_extension(ss, ext);
 /// ```
-fn filter_extension(src_dir: &str, extension: &str) {
+fn filter_extension(src_dir: &str, extension: &str) -> io::Result<()> {
     // mk dst dir
     let root_dir = Path::new(src_dir).parent().unwrap().to_str();
     let dst_dir = mkdir(root_dir.unwrap());
@@ -41,16 +42,19 @@ fn filter_extension(src_dir: &str, extension: &str) {
                         file_name.unwrap(),
                         &dst_dir.as_path().display()
                     );
-                    fs::copy(entry_path, dst_file_path);
+                    fs::copy(entry_path, dst_file_path)?;
                 }
                 None => {}
                 _ => {}
             }
         }
     }
+    Ok(())
 }
-fn main() {
+fn main() -> io::Result<()> {
     let ss = r"D:\BaiduNetdiskDownload";
     let ext = "mobi";
-    filter_extension(ss, ext);
+    filter_extension(ss, ext)?;
+    println!("*********done*********");
+    Ok(())
 }
