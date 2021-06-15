@@ -1,6 +1,16 @@
 pub trait Sound {
     fn make_sound(&self);
 }
+impl Sound for &str {
+    fn make_sound(&self) {
+        println!("str")
+    }
+}
+impl Sound  for i32 {
+    fn make_sound(&self) {
+        
+    }
+}
 /// trait object: duck typing in python
 /// dynamic dispach : compiler  can't tell at compile time which method you're calling
 struct Animal {
@@ -39,7 +49,15 @@ fn trait_obj() {
     a.start();
 }
 
+
 #[test]
 fn test_trait_obj() {
     trait_obj();
+// use_tb(SS);
+let mut v:Vec<Box<dyn Sound>>=vec![];
+v.push(Box::new("x"));
+v.push(Box::new(1));
+let s:&[&dyn Sound]=&[];
+ 
 }
+
